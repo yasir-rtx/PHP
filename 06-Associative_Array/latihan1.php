@@ -26,11 +26,11 @@
 </head>
 <body>
 	<?php 
-		$number = [[1,2,3],[4,5,6],[7,8,9]];
+		$numbers = [[1,2,3],[4,5,6],[7,8,9]];
 	 ?>
 
-	<?php foreach ($number as $numbers) : ?>
-		<?php foreach ($numbers as $num) : ?>
+	<?php foreach ($numbers as $number) : ?>
+		<?php foreach ($number as $num) : ?>
 	 		<div class="box"> <?= $num; ?> </div>
 		<?php endforeach; ?>
 	<?php endforeach; ?>
