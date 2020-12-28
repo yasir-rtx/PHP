@@ -1,21 +1,22 @@
 <?php 
-    require 'functions.php'; 
+    require 'functions.php';
     // Cek tombol submit sudah ditekan atau belum
     if (isset($_POST["submit"])) {
-        // Menamput value dari form ke dalam variabel
-        $nrp = $_POST["nrp"];
-        $nama = $_POST["nama"];
-        $email = $_POST["email"];
-        $jurusan = $_POST["jurusan"];
-        $foto = $_POST["foto"];
-
-        // Query insert data
-        $sqladd = mysqli_query($conn, "INSERT INTO mahasiswa VALUES ('', '$nrp', '$nama', '$email', '$jurusan', '$foto')");
-
-        if ($sqladd) {
-            echo "BERHASIL";
+        if (add($_POST) > 0) {
+            echo "
+                <script>
+                    alert('DATA BERHASIL DITAMBAHKAN');
+                    document.location.href = 'index.php';
+                </script>
+            ";
+            
         } else {
-            echo "GAGAL";
+            echo "
+                <script>
+                    alert('DATA GAGAL DITAMBAHKAN');
+                    document.location.href = 'index.php';
+                </script>
+            ";
         }
     }
 ?>
@@ -33,7 +34,7 @@
     <form name="" method="post" action="" enctype="multipart/form-data">
         <p>
             <label for="nrp">NRP : </label>
-            <input type="text" name="nrp" id="nrp" placeholder="NRP...">
+            <input type="text" name="nrp" id="nrp" placeholder="NRP..." required>
         </p>
         <p>
             <label for="nama">Nama : </label>

@@ -32,7 +32,7 @@
             <td><?= $no; ?></td>
             <td>
                 <a href="">EDIT</a> |
-                <a href="">DELETE</a>
+                <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');">DELETE</a>
             </td>
             <td><img src="img/<?= $row["foto"] ?>" width="100px"></td>
             <td><?= $row["nrp"]; ?></td>
