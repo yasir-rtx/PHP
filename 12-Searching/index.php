@@ -1,6 +1,11 @@
 <?php 
     require 'functions.php';
     $sql = query("SELECT * FROM mahasiswa");
+
+    // Pencarian
+    if (isset($_POST["find"])) {
+        $sql = find($_POST["keyword"]);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +18,12 @@
     <h1>Daftar Mahasiswa</h1>
 
     <!-- Tambah data -->
-    <a href="add.php">ADD</a>
+    <a href="add.php">ADD</a><br><br>
+
+    <form name="" method="post" action="" enctype="multipart/form-data">
+        <input type="text" name="keyword" id="keyword" size="40px" autofocus placeholder="Cari..." autocomplete="off">
+        <button type="submit" name="find">FIND</button>
+    </form><br>
 
     <table border="1" cellpadding="10" cellspacing="0">
     	<tr>
@@ -24,6 +34,7 @@
     		<th>NAMA</th>
     		<th>EMAIL</th>
     		<th>JURUSAN</th>
+            <th>TERDAFTAR</th>
         </tr>
         
         <?php $no = 1; ?>
@@ -39,6 +50,7 @@
             <td><?= $data["nama"]; ?></td>
             <td><?= $data["email"]; ?></td>
             <td><?= $data["jurusan"]; ?></td>
+            <td>Sejak <?= $data["terdaftar"]; ?></td>
         </tr>
         <?php $no++; ?>
         <?php endforeach; ?>

@@ -26,7 +26,7 @@
         $jurusan = htmlspecialchars($data["jurusan"]);
         $foto = htmlspecialchars($data["foto"]);
         
-        $sqladd = mysqli_query($conn, "INSERT INTO mahasiswa VALUES ('', '$nrp', '$nama', '$email', '$jurusan', '$foto')");
+        $sqladd = mysqli_query($conn, "INSERT INTO mahasiswa VALUES ('', '$nrp', '$nama', '$email', '$jurusan', '$foto', NOW())");
 
         return mysqli_affected_rows($conn);
     }
@@ -53,5 +53,15 @@
         mysqli_query($conn, "UPDATE mahasiswa SET nrp = '$nrp', nama = '$nama', email = '$email', jurusan = '$jurusan', foto = '$foto' WHERE id = $id");
 
         return mysqli_affected_rows($conn);
+    }
+
+    function find ($keyword) {
+        $query = "SELECT * FROM mahasiswa WHERE
+                    nama LIKE '%$keyword%' OR
+                    email LIKE '%$keyword%' OR
+                    jurusan LIKE '%$keyword%' OR
+                    nrp LIKE '%$keyword%'
+                ";
+        return query($query);
     }
  ?>
