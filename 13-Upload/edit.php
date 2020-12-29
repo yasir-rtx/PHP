@@ -39,6 +39,7 @@
     <!-- action dikosongkan agar data dikirimkan kembali ke halaman ini -->
     <form name="" method="post" action="" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $sqledit["id"]; ?>">
+        <input type="hidden" name="fotoold" value="<?= $sqledit["foto"]; ?>">
         <p>
             <label for="nrp">NRP : </label>
             <input type="text" name="nrp" id="nrp" placeholder="NRP..." required value="<?= $sqledit["nrp"]; ?>">
@@ -57,7 +58,8 @@
         </p>
         <p>
             <label for="foto">Foto : </label>
-            <input type="text" name="foto" id="foto" placeholder="" value="<?= $sqledit["foto"]; ?>">
+            <img src="img/<?= $sqledit["foto"]; ?>" width="100px" height="100px"><br>
+            <input type="file" name="foto" id="foto">
         </p>
         <p>
             <button type="submit" name="submit">SUBMIT</button>

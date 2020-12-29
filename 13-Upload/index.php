@@ -15,7 +15,7 @@
     <title>Administrator</title>
 </head>
 <body>
-    <h1>Daftar Mahasiswa</h1>
+    <a href="index.php"><h1>Daftar Mahasiswa</h1></a>
 
     <!-- Tambah data -->
     <a href="add.php">ADD</a><br><br>
@@ -45,7 +45,7 @@
                 <a href="edit.php?id=<?= $data["id"]; ?>">EDIT</a> |
                 <a href="delete.php?id=<?= $data["id"]; ?>" onclick="return confirm('Apakah anda yakin ingin mengahapus data??');">DELETE</a>
             </td>
-            <td><img src="img/<?= $data["foto"] ?>" width="100px"></td>
+            <td><img src="img/<?= $data["foto"] ?>" width="100px" height="100px"></td>
             <td><?= $data["nrp"]; ?></td>
             <td><?= $data["nama"]; ?></td>
             <td><?= $data["email"]; ?></td>

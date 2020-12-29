@@ -50,7 +50,7 @@
         </p>
         <p>
             <label for="foto">Foto : </label>
-            <input type="text" name="foto" id="foto" placeholder="">
+            <input type="file" name="foto" id="foto" placeholder="">
         </p>
         <p>
             <button type="submit" name="submit">SUBMIT</button>
